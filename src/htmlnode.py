@@ -10,7 +10,7 @@ class HTMLNode():
         if self.props:
             string = " "
             for key, value in self.props.items():
-                string+=f"{key}={value} "
+                string+=f'{key}="{value}" '
             return string
         else:
             return ""
