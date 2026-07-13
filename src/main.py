@@ -1,12 +1,17 @@
 from textnode import TextNode
 from textnode import TextType
 from htmlnode import HTMLNode
+from leafnode import LeafNode
 def main():
     text = TextNode('This is some anchor text', TextType.LINK, 'https://www.boot.dev')
     html_node = HTMLNode("h1", "This is main header", "p", {
         "color":"red",
         "href": "https://google.com/"
     })
+    leaf_node = LeafNode("p","This is a paragraph")
     print(text)
     print(html_node)
+    print(leaf_node.to_html())
+    print(LeafNode("a", "Click me!", {"href": "https://www.google.com"}).to_html())
+
 main()
