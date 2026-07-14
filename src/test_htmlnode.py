@@ -2,21 +2,21 @@ import unittest
 from htmlnode import HTMLNode
 class TestHtmlNode(unittest.TestCase):
     def test_props(self):
-        excepted = ' href="https://www.google.com" target="_blank" '
+        excepted = ' href="https://www.google.com" target="_blank"'
         htmlnode = HTMLNode("a", "Visit Google", "img", {
             "href":"https://www.google.com",
             "target":"_blank"
         })
         self.assertEqual(excepted, htmlnode.props_to_html())
     def test_fail_props(self):
-        excepted = ' href="https://www.google.com"target="_blank" '
+        excepted = ' href="https://www.google.com"target="_blank"'
         htmlnode = HTMLNode("a", "Visit Google", "img", {
             "href":"https://www.google.com",
             "target":"_blank"
         })
         self.assertNotEqual(excepted, htmlnode.props_to_html())
     def test_single_prop(self):
-        expected = ' class="container" '
+        expected = ' class="container"'
         html_node = HTMLNode(
             "div",
             "Content",
