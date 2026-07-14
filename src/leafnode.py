@@ -4,12 +4,12 @@ class LeafNode(HTMLNode):
         super().__init__(tag, value, props=props)
     def to_html(self):
         HTML_string = ""
-        if not self.value:
+        if not self.value and self.tag not in {"img", "br", "hr", "input"}:
             raise ValueError
         if not self.tag:
             HTML_string=self.value
         else:
-            HTML_string=f'<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>'
+            HTML_string=f'<{self.tag}{self.props_to_html()}>{self.value if self.value else ""}</{self.tag}>'
         return HTML_string
     def __repr__(self):
         return f"Tag: {self.tag}\nValue: {self.value}\nProps: {self.props_to_html()}"
