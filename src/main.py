@@ -3,6 +3,7 @@ from textnode import TextType
 from htmlnode import HTMLNode
 from leafnode import LeafNode
 from parentnode import ParentNode
+from split_nodes import split_nodes
 def main():
     text = TextNode('This is some anchor text', TextType.LINK, 'https://www.boot.dev')
     html_node = HTMLNode("h1", "This is main header", "p", {
@@ -17,5 +18,6 @@ def main():
     child_node = LeafNode("span","child")
     parent_node = ParentNode("div",[child_node])
     print(parent_node.to_html())
-
+    node = TextNode("This is text with a `code block` word", TextType.TEXT)
+    new_nodes = split_nodes([node], "`", TextType.CODE_TEXT)
 main()
