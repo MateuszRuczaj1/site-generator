@@ -19,7 +19,7 @@ class TextNode():
             is_equal = True
         return is_equal
     def __repr__(self):
-        return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
+        return f"TextNode({self.text}, {self.text_type}, {self.url})"
     
 def text_node_to_html(text_node: TextNode) -> LeafNode:
     match text_node.text_type:
